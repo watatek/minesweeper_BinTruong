@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Number of Mines</th>
+      <th scope="col">Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% boards.each do |board| %>
+      <tr>
+        <th scope="row"><%= board.id %></th>
+        <td><%= link_to board.name, board_path(board) %></td>
+        <td><%= board.email %></td>
+        <td><%= board.mines %></td>
+        <td><%= board.created_at.strftime("%m/%d/%Y %I:%M %p") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

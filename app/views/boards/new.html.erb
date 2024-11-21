@@ -1,0 +1,14 @@
+<% content_for :title, "New Board" %>
+
+<div class="card">
+  <div class="card-body">
+    <%= render "form", board: @board %>
+  </div>
+</div>
+
+
+<br>
+
+<div>
+  <%= link_to "Back to boards", boards_path %>
+</div>

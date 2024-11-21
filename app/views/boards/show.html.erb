@@ -1,0 +1,36 @@
+<% content_for :title, "Board - #{@board.name}" %>
+
+<p class="alert <%= notice.present? ? 'alert-success' : '' %>"><%= notice %></p>
+<div class="card-body">
+  <h5 class="card-title">Name of board: <%= @board.name %></h5>
+  <p class="mb-0">Created by: <%= @board.email %></p>
+  <p class="mb-0">Number of mines: <%= @board.mines %></p>
+  <p class="mb-0">Width: <%= @board.width %></p>
+  <p class="mb-0">Height: <%= @board.height %></p>
+</div>
+<br>
+<table>
+  <% @board.height.times do |row| %>
+    <tr>
+      <% @board.width.times do |col| %>
+        <td>
+          <% if @board.mine_positions.include?([col, row]) %>
+            &#x1F4A3;
+          <% else %>
+            <span class="grey-square">&#x2B1C;</span>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+<br>
+<div>
+  <%= link_to "Back to boards", boards_path %>
+</div>
+
+<style>
+  .grey-square {
+    color: grey;
+  }
+</style>

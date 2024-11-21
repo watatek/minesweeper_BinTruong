@@ -1,0 +1,8 @@
+<% content_for :title, "Home" %>
+
+<h2>Ten most recently generated boards</h2>
+<br>
+
+<%= render partial: 'boards/list', locals: { boards: @last_recent_boards } %>
+
+<a href="/boards" class="btn btn-primary">View all generated boards</a>

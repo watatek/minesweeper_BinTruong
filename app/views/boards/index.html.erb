@@ -1,0 +1,15 @@
+<% content_for :title, "All Boards" %>
+
+<p style="color: green"><%= notice %></p>
+
+<h2>All Boards</h2>
+<%= render "filter" %>
+<%= render partial: 'list', locals: { boards: @boards } %>
+
+<div>
+  <%= paginate @boards, theme: 'bootstrap-5',
+                  pagination_class: "pagination-sm flex-wrap justify-content-center",
+                  nav_class: "d-inline-block" %>
+</div>
+
+<%= link_to "New board", new_board_path, class: 'btn btn-primary' %>
